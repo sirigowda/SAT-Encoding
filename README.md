@@ -14,7 +14,7 @@ are Indifferent (I) to each other and do not mind sitting together or not. Howev
 guests can have only one relationship, (F), (E) or (I). You must find a seating arrangement that
 satisfies all the constraints.
 
-A more detailed description of the problem can be found in WeddingArrangementProblem.pdf.
+A more detailed description of the problem and format of the input can be found in WeddingArrangementProblem.pdf.
 
 #### SYSTEM REQUIREMENTS
 
