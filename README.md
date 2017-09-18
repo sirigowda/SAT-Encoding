@@ -1,10 +1,10 @@
 # SAT-Encoding
 
-### ABOUT THE CODE
+#### ABOUT THE CODE
 
 Implemented a SAT solver to find a satisfying assignment for any given CNF sentences.
 
-### PROBLEM DESCRIPTION
+#### PROBLEM DESCRIPTION
 
 Suppose you have a wedding to plan, and want to arrange the wedding seating for a certain
 number of guests in a hall. The hall has a certain number of tables for seating. Some pairs of
@@ -16,10 +16,18 @@ satisfies all the constraints.
 
 A more detailed description of the problem can be found in WeddingArrangementProblem.pdf.
 
-### SYSTEM REQUIREMENTS
+#### SYSTEM REQUIREMENTS
 
 Operating System : Windows / Mac OS X
 
 Programming Language: Python 2.7
 
-### FILE DESCRIPTIONS
+#### CODE EXECUTION
+
+Update the file input and output path in externalproperties.py. 
+
+Sample input output test cases for testing the code have been provided in Sample test cases folder.
+
+To obtain valid wedding seating arrangement, run WeddingSeatingArrangement.py.
+
+If valid seating exists, the output contains 'yes' followed by the seat assigment for each guest. If no valid seating exists, the program outputs 'no'. 
