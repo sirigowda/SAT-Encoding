@@ -6,7 +6,7 @@ cnf = []
 numguests = input[0]
 maxtables = input[1]
 
-# Assigns one table per guest
+# Returns clauses representing assignment of one table per guest
 def onetableperguest():
     for guest in range(1, int(numguests) + 1):
         onetableclause = []
@@ -25,7 +25,7 @@ def onetableperguest():
                     onetableclause.append(literal2)
                     clauses.append(onetableclause)
 
-# Implements friends seating constraints 
+# Returns clauses representing friends seating constraints 
 # Friends must be seated next to each other
 def friendconstraints(rel):
     for table1 in range(1, int(maxtables) + 1):
@@ -38,7 +38,7 @@ def friendconstraints(rel):
                 onetableclause.append(literal2)
                 clauses.append(onetableclause)
 
-# Implements enemy constraints
+# Returns clauses representing constraints
 # Enemies must be seated away from each other
 def enemyconstraints(rel):
     for table in range(1, int(maxtables) + 1):
@@ -49,6 +49,7 @@ def enemyconstraints(rel):
         onetableclause.append(literal2)
         clauses.append(onetableclause)
 
+# Returns symbols in dpll sentence
 def getsymbolsinsentencedpll(clauses):
     symbols = []
     for clause in clauses:
@@ -57,6 +58,7 @@ def getsymbolsinsentencedpll(clauses):
                 symbols.append(literal)
     return symbols
 
+# Remove particular symbol from list of symbols
 def removefromsymbols(symbols, toberemovedsymbol):
     newsymlist = copy.copy(symbols)
     newsymlist.remove(toberemovedsymbol)
@@ -69,6 +71,8 @@ def removefromsymbols(symbols, toberemovedsymbol):
             newsymlist.remove("~" + toberemovedsymbol)
     return newsymlist
 
+# Implements dpll algorithm to solve CNF sentences
+# Returns boolean value indicating if valid seating arrangement exists
 def dpll(clauses, symbols, model):
     if bool(model):
         if evaluateassignmentdpll(clauses, model):
@@ -93,8 +97,8 @@ def dpll(clauses, symbols, model):
     rest = symbols
     return dpll(clauses, removefromsymbols(rest, first), modelunion(model, first, True)) or dpll(clauses,removefromsymbols(rest, first), modelunion(model, first, False))
 
-# returns false if even one completely assigned clause evaluates to false
-# returns true otherwise
+# Evaluates dpll assignment
+# Returns false if even one completely assigned clause evaluates to false, returns true otherwise
 def evaluateassignmentdpll(clauses, model):
     for clause in clauses:
         cvalue = findvaluesofclausedpll(clause, model)
@@ -103,8 +107,7 @@ def evaluateassignmentdpll(clauses, model):
             return False
     return True
 
-# returns None if a literal in the clause is unassigned
-# returns true if clause evaluates to true
+# Returns None if a literal in the clause is unassigned, returns true if clause evaluates to true
 def findvaluesofclausedpll(clause, model):
     value = None
     unassigned = False
@@ -142,6 +145,7 @@ def modelunion(model, symbol, value):
         newmodel["~" + symbol] = not value
     return newmodel
 
+# Identifies and returns pure sumbols in given list of clauses
 def findPureSymboldpll(clauses, symbols, model):
     result = {}
     puresymbols = copy.copy(symbols)
@@ -173,6 +177,7 @@ def findPureSymboldpll(clauses, symbols, model):
         result[pureneg] = True
     return result
 
+# Identifies and returns unit clauses
 def findunitclause(clauses, model):
     # returns unit clause symbol and value if one exists
     # else returns {}
@@ -204,6 +209,7 @@ def printclauses(clauses):
     for clause in clauses:
         print clause
 
+# Returns seat arrangement 
 def get_seat_arrangement(f, lines, numguests):
     lines.pop(0)
     onetableperguest()
