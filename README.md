@@ -24,10 +24,10 @@ Programming Language: Python 2.7
 
 #### CODE EXECUTION
 
-Update the file input and output path in externalproperties.py. 
+Update the file input and output path in **externalproperties.py**. 
 
-Sample input output test cases for testing the code have been provided in Sample test cases folder.
+Sample input output test cases for testing the code have been provided in **Sample test cases** folder.
 
-To obtain valid wedding seating arrangement, run WeddingSeatingArrangement.py.
+To obtain valid wedding seating arrangement, run **WeddingSeatingArrangement.py**.
 
 If valid seating exists, the output contains 'yes' followed by the seat assigment for each guest. If no valid seating exists, the program outputs 'no'. 
