@@ -4,7 +4,7 @@
 
 Implemented a SAT solver to find a satisfying assignment for any given CNF sentences.
 
-#### PROBLEM DESCRIPTION
+##### PROBLEM DESCRIPTION
 
 Suppose you have a wedding to plan, and want to arrange the wedding seating for a certain
 number of guests in a hall. The hall has a certain number of tables for seating. Some pairs of
